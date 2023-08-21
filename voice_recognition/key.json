@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "vaulted-arcana-396017",
+  "private_key_id": "9fd6d0f4dcef4b319e07610b8f7d85eaeb7b16eb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC0+kuXv5TJDd2P\n0yEXhyKcLETgaFJK9RjXHStgexUvRUr0V3ib7ZtdQh03eAKMnMbiRRPP091KGWVn\nG4NHfkkgS9fIKE3OBPhCKjci/7WDJpnc/eYY+KAjHteo0zpi0tiwAH2dib/gR4rz\nxTuMEB8jzxDfO1agmgGrFcHz3ZEBqe+JBhRcIefjnGucYY/8s/S9Z6qFxiomlGxc\n3DL72o6lzuJhv/coTU+dfCzi0wshD2dq4p0vaXNy/P/o2a71Lyo/pnqYUhn9Gq4L\nyLqfYDWhw0q9OLC9qVIJAtjVthCX3o8vND18Acf+ukExmAUVbrENxeeHZvLjc0/5\nSr/KIv0TAgMBAAECggEARdksf77zX724O6BS70+6refwFWRuDnwWQEAD09LtVDc8\nPJ3d8OB9zDqOKDBrW3XO1NmwUdAFYmn21xqpSliVRJ/BAoF7tf35CyBb82gZ2Cp3\ny/E6c3zR4Xwv4/rSV/3kn9kwojLeGWPDX15KIz69pgZvDplKT+XgqvVUzBhBtRAI\n1eiRoZdIc5AIrQ7JXt88LXY6E39tH+Ccq8R9KaXQHg8gdXbN8I8B3oMcWrCpiVlE\nelfSESNP/DE/5Pxul5nzR1JmDgNHf467gFyh9hN8/MpBHHoWhZN7/HD4yh1G8qmA\nUX8MuspgukhH/kVuLQjSyK4ZTR9F7Gu8NLVnTw7EAQKBgQDmlsQdydMUIb1Ch2ay\nbv/Xa2qRtk2WLUfLSuvjwbpfLKANlnStStM3PIWPIwBgyg1zqK//3aQ9kE1hSfeR\nHWBSFWcKX5FwU+LOn/moEjxpLDds8IlassdP5bBblhlVGNIQ6d6Qkf4C1v+jLwyV\n5iuVlJRz26IBDO8syA8gFXvAEwKBgQDI6+2PEqH14G6iDpvyU0JIjM7Ei8RG0Yv7\nH2h5/zY2CHaQP7aJVIKiDJW/63RLi/PTNqWLUIq4WZMjZ801/cbCSnS94sqv/P9T\nhJVrjEuVZfKOCfH2ZxW7IUShnL6q26a07yvK5OHep0No2VZ/QIS2nN7s8srinn1p\nKg0MBAVvAQKBgEmgjlJspSdidooNre7/nlVsiQSpzzBKmQgCjjuVGitVlm2AQxUq\nNTMH8iV4KaC+I3lwvXHXlZ/Kucp80b3WQXE0QEiBp3DUeDE9x3uxBvUWF0SDsXfy\nac3LK3qy/Le9SyX3ZweGdjL1735tgXlDm1sRrC0qThpDxQLphlraQT9dAoGBAIwy\npEcrNzw8aLZH/2Ut15iMOFNJO6I24bhPCDXocUluylyJOLPG9ohgw7VxdGqqs250\nOTtm7gUI6/TOn5DHDgPQtHkzYT9ACGGcqC6tbKhIxOF76wyGjdFPu3YRy7GpJ0Al\ni6c94qXcjNsCnKqauIA8IgmwuQU8lkHlh8kUnT4BAoGAOF4g3z84ncaCtqxMsaxm\nFcBFZqkKAxvhQId02jV1hgXGuFn2sJAKdId1gvtbpWvdU3JsnNAQwaVp4gx/Tb+j\nDC0/gW2RiUlfbeg5igg3+MC5GqCWkylHf/AUdr4ECJ6gAR6LTKCBAQvKti0XvUQw\nqdh3HxY25pmnNXzZ/xtcanw=\n-----END PRIVATE KEY-----\n",
+  "client_email": "hokoomi@vaulted-arcana-396017.iam.gserviceaccount.com",
+  "client_id": "118005546077208643595",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/hokoomi%40vaulted-arcana-396017.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
