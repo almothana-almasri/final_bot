@@ -1,6 +1,7 @@
 Flask==2.3.2
 twilio==8.3.0
 openai==0.27.8
+openapi-schema-pydantic==1.2.4
 requests==2.31.0
 Pillow==9.5.0
 python-dotenv==1.0.0
@@ -10,3 +11,9 @@ google-auth==2.22.0
 google-cloud-texttospeech==2.14.1
 googleapis-common-protos==1.60.0
 google-cloud-speech==2.21.0
+selenium==4.10.0
+arabic-reshaper==3.0.0
+chardet==5.1.0
+cloudconvert==2.1.0
+decorator==5.1.1
+SpeechRecognition==3.10.0
