@@ -1,0 +1,9 @@
+services:
+  web:
+    setup: python38, gcc
+    install: python -m venv --copies /opt/venv && . /opt/venv/bin/activate && pip install -r requirements.txt
+    start: python your_bot_script.py
+    env:
+      - OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+      - TWILIO_AUTH_TOKEN=${{ secrets.TWILIO_AUTH_TOKEN }}
+      - TWILIO_ACCOUNT_SID=${{ secrets.TWILIO_ACCOUNT_SID }}
