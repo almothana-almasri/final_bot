@@ -1,5 +1,5 @@
 from flask import request
-from bot import app
+import main
 from web_scraping.vehicle_validation import vehicle_validation
 from web_scraping.financial_status import financial_status
 from web_scraping.violations_lookup import violations_lookup
@@ -30,14 +30,14 @@ def service(incoming_msg, phone_number):
         responses[process_values] = []  
         question = 0
         profile_name = request.values["ProfileName"]
-        app.send_message(f"أهلاً  {profile_name}", phone_number)
-        app.send_message(f"{processes[current_process][2][question]}", phone_number)
-        app.send_message("للخروج في أي وقت، فقط اضغط 0", phone_number)
+        main.send_message(f"أهلاً  {profile_name}", phone_number)
+        main.send_message(f"{processes[current_process][2][question]}", phone_number)
+        main.send_message("للخروج في أي وقت، فقط اضغط 0", phone_number)
     
     elif incoming_msg == "0":
         del responses[process_values]
         current_process = ""
-        app.send_message("تم إلغاء العملية", phone_number)
+        main.send_message("تم إلغاء العملية", phone_number)
 
     elif processes[current_process][0] in responses:
         if len(responses[process_values]) < processes[current_process][1]:  
@@ -45,13 +45,13 @@ def service(incoming_msg, phone_number):
             remaining_responses = processes[current_process][1] - len(responses[process_values]) 
             if remaining_responses > 0:
                 question += 1
-                app.send_message(processes[current_process][2][question], phone_number)
+                main.send_message(processes[current_process][2][question], phone_number)
                 print(responses)
             else:
                 collected_responses = responses[process_values]
                 do_service = processes[current_process][3]
                 del responses[process_values]
-                app.send_message("شكراً لك، انتظر النتيجة", phone_number)
+                main.send_message("شكراً لك، انتظر النتيجة", phone_number)
                 if current_process == "11":
                     service_result = do_service()
                 else:
@@ -60,13 +60,13 @@ def service(incoming_msg, phone_number):
                 if current_process == "111" or current_process == "11" or current_process == "14" or current_process == "15" or current_process == "16" or current_process == "17" or current_process == "18" or current_process == "19" or current_process == "20":
                     if isinstance(service_result, tuple):   
                         for ele in service_result:
-                            app.send_media_message(ele, phone_number)
+                            main.send_media_message(ele, phone_number)
                     else:
-                        app.send_media_message(service_result, phone_number)
+                        main.send_media_message(service_result, phone_number)
 
                 elif isinstance(service_result, tuple):       # to handle long twilio's message
                     for ele in service_result:
-                        app.send_message(ele, phone_number)
+                        main.send_message(ele, phone_number)
                 else:
-                    app.send_message(service_result, phone_number)
+                    main.send_message(service_result, phone_number)
                 current_process = ""
