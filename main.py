@@ -9,7 +9,6 @@ from io import BytesIO
 from voice_recognition.handle_voice import voice_handler
 import unicodedata
 import os
-from dotenv import load_dotenv
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "top-secret!"  # SECRET KEY CAN BE ANYTHING
@@ -63,7 +62,7 @@ def bot():
         incoming_msg = request.values['MediaUrl0']
         response = requests.get(incoming_msg)
         audio_content = response.content
-        with open("../voice_message/audio.ogg", "wb") as file:
+        with open("./voice_message/audio_test.ogg", "wb") as file:
             file.write(audio_content)
         incoming_msg = voice_handler()
 
@@ -86,7 +85,7 @@ def bot():
         response = requests.get(incoming_msg)
         image_content = response.content
         image = Image.open(BytesIO(image_content))
-        image.save(f"../images/user_image_input{len(list(service_handling.responses.values())[0]) + 1}.jpeg")
+        image.save(f"./images/user_image_input{len(list(service_handling.responses.values())[0]) + 1}.jpeg")
     
     else:
         send_message("Message Cannot Be Empty!", phone_number)
@@ -102,4 +101,4 @@ def bot():
     return str(r)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000))
