@@ -16,9 +16,6 @@ app.config["SECRET_KEY"] = "top-secret!"  # SECRET KEY CAN BE ANYTHING
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
 
-print("Retrieved Twilio Account SID:", account_sid)
-print("Retrieved Twilio Auth Token:", auth_token)
-
 client = Client(account_sid, auth_token)
 
 def send_message(body_mess, phone_number):
