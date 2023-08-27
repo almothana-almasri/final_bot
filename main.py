@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, Response
 from twilio.twiml.messaging_response import MessagingResponse
 from twilio.rest import Client
 from service import service_handling 
@@ -13,17 +13,12 @@ from dotenv import load_dotenv
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "top-secret!"  # SECRET KEY CAN BE ANYTHING
-# config = dotenv_values("../openai_pdf_chat/.env")
-# TWILIO
-dotenv_path = '../openai_pdf_chat/.env'  # Replace with the actual path
-load_dotenv(dotenv_path)
 
-# account_sid = "AC6012958105eeb9cb368787b49b47494b"
-# auth_token = "34ad53d20aa6b18b01a11c664f8b57d7"
-# account_sid = config['TWILIO_ACCOUNT_SID']
-# auth_token = config['TWILIO_AUTH_TOKEN']
 account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
+
+print("Retrieved Twilio Account SID:", account_sid)
+print("Retrieved Twilio Auth Token:", auth_token)
 
 client = Client(account_sid, auth_token)
 
@@ -38,34 +33,9 @@ def send_message(body_mess, phone_number):
 def send_media_message(media_url, phone_number):
     client.messages.create(
         from_="whatsapp:+14155238886",  # With Country Code
-        # body="Check out this image!",
         media_url=[media_url],
         to="whatsapp:" + phone_number,  # With Country Code
     )
-
-
-# @app.route("/bot", methods=["POST"])
-# def bot():
-#     phone_number = request.values["WaId"]
-#     incoming_msg = request.values['Body']
-#     try:
-#         service(incoming_msg, phone_number)
-#     except:
-#         if incoming_msg:
-#             answer = main(incoming_msg)
-#             send_message(answer, phone_number)
-#             print(answer)
-#         else:
-#             send_message("Message Cannot Be Empty!", phone_number)
-#     r = MessagingResponse()
-#     r.message("")
-#     return str(r)
-
-
-# if __name__ == "__main__":
-#     app.run()
-
-
 
 welcoming_message = 0
 
@@ -73,6 +43,11 @@ welcoming_message = 0
 def bot():
     
     global welcoming_message 
+
+    # Debug logs
+    print("Received a message:")
+    print(request.values)
+
     phone_number = request.values["WaId"]
 
     if welcoming_message == 0:
