@@ -105,10 +105,11 @@ def bot():
 
     try:
         service_handling.service(incoming_msg, phone_number)
-    except:
+    except Exception as e:
+        print("Error in service_handling.service:", str(e))
         answer = main(incoming_msg)
         send_message(answer, phone_number)
-        print(answer)
+        print("Answer from main:", answer)
     r = MessagingResponse()
     r.message("")
     return str(r)

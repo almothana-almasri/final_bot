@@ -145,7 +145,7 @@ def service(incoming_msg, phone_number):
             if remaining_responses > 0:
                 question += 1
                 main.send_message(processes[current_process][2][question], phone_number)
-                print(responses)
+                print("Collected Responses:", responses)
             else:
                 collected_responses = responses[process_values]
                 do_service = processes[current_process][3]
