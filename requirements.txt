@@ -18,3 +18,4 @@ cloudconvert==2.1.0
 decorator==5.1.1
 SpeechRecognition==3.10.0
 python-bidi==0.4.2
+faiss-cpu==1.7.4

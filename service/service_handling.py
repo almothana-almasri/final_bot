@@ -118,8 +118,6 @@ def service(incoming_msg, phone_number):
     global current_process
     global process_values
     global question
-    # incoming_msg = request.values['Body']
-    # phone_number = request.values['WaId']
 
     if incoming_msg in processes:
         current_process = incoming_msg
@@ -132,11 +130,14 @@ def service(incoming_msg, phone_number):
         main.send_message("للخروج في أي وقت، فقط اضغط 0", phone_number)
 
     elif incoming_msg == "0":
-        del responses[process_values]
-        current_process = ""
-        main.send_message("تم إلغاء العملية", phone_number)
+        if current_process:
+            del responses[process_values]
+            current_process = ""
+            main.send_message("تم إلغاء العملية", phone_number)
+        else:
+            main.send_message("لا توجد عمليات قيد التنفيذ", phone_number)
 
-    elif processes[current_process][0] in responses:
+    elif current_process and processes[current_process][0] in responses:
         if len(responses[process_values]) < processes[current_process][1]:
             responses[process_values].append(incoming_msg)
             remaining_responses = processes[current_process][1] - len(
@@ -175,9 +176,13 @@ def service(incoming_msg, phone_number):
 
                 elif isinstance(
                     service_result, tuple
-                ):  # to handle long twilio's message
+                ):  # to handle long Twilio's messages
                     for ele in service_result:
                         main.send_message(ele, phone_number)
                 else:
                     main.send_message(service_result, phone_number)
                 current_process = ""
+
+    else:
+        raise ValueError("dd")
+    #     main.send_message("عذرًا، هذه العملية غير مدعومة", phone_number)
