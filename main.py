@@ -57,12 +57,12 @@ def bot():
         welcoming_message += 1
         return ""
 
-    # Print the incoming message here
-    print("Sent message:")
-    print(incoming_msg)
-
     if request.values["Body"]:
         incoming_msg = request.values["Body"]
+
+        # Print the incoming message here
+        print("Sent message:")
+        print(incoming_msg)
 
     elif (
         request.values["MediaUrl0"]
