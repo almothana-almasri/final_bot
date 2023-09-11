@@ -6,7 +6,7 @@ from langchain.text_splitter import CharacterTextSplitter
 
 def main(incoming_msg):
 
-    loader = DirectoryLoader("../data_/", glob="**/*.txt")
+    loader = DirectoryLoader("../data_", glob="**/*.txt")
     documents = loader.load()
     text_splitter = CharacterTextSplitter(chunk_size=10000, chunk_overlap=0)
     docs = text_splitter.split_documents(documents)
